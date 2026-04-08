@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineered Circadian Rhythms — Uncontrolled Environments</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-left">Uncontrolled Environments — GSAPP Biocomputation Lab</div>
+    <div class="nav-right">
+      <a href="#abstract">01 Abstract</a>
+      <a href="#experiment">02 Experiment</a>
+      <a href="#methodology">03 Methodology</a>
+      <a href="#documentation">04 Documentation</a>
+      <a href="#data">05 Data</a>
+      <a href="#future">06 Future World</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <!-- ── HERO ── -->
+    <div class="hero">
+      <div class="hero-left">
+
+        <div class="thesis-label">Uncontrolled Environments — Columbia GSAPP 2026</div>
+
+        <h1>Engineered<br>Circadian Rhythms</h1>
+        <div class="subtitle">Metabolic Activity in Spider Plants</div>
+
+        <div class="meta-grid">
+          <div class="meta-cell">
+            <div class="meta-label">Specimen</div>
+            <div class="meta-value">Chlorophytum comosum</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Biological Process</div>
+            <div class="meta-value">Photosynthesis</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Primary Sensor</div>
+            <div class="meta-value">Adafruit SCD-40</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Measurement</div>
+            <div class="meta-value">CO₂, Temp, Humidity</div>
+          </div>
+        </div>
+
+        <div class="description-block">
+          <p>Measuring the photosynthesis process of <em>Chlorophytum comosum</em> by engineering different lighting conditions to measure atmospheric CO₂ as it relates to metabolic production on varying timescales.</p>
+        </div>
+
+        <div class="tag-row">
+          <div class="tag active">Circadian Rhythm</div>
+          <div class="tag active">CO₂ Sensing</div>
+          <div class="tag">Biocomputation</div>
+          <div class="tag">Living Architecture</div>
+          <div class="tag">Photosynthesis</div>
+          <div class="tag">Multispecies Design</div>
+        </div>
+
+      </div>
+
+      <!-- HERO IMAGE -->
+      <div class="hero-image">
+        <img src="images/interaction-sketch-05.png" alt="Specimen photograph — Chlorophytum comosum">
+      </div>
+    </div>
+
+    <!-- ── 01 ABSTRACT ── -->
+    <section id="abstract">
+      <div class="section-header">
+        <div class="section-index">01</div>
+        <div class="section-title-block">
+          <h2>Abstract</h2>
+          <div class="section-sub">Addressing a Problem</div>
+        </div>
+      </div>
+      <div class="content-col">
+        <div class="label-col">Problem<br>Context</div>
+        <div class="text-col">
+          <p>As atmospheric CO₂ concentrations rise and urban light pollution disrupts natural day/night cycles, what happens to the organisms that evolved to breathe within those rhythms? This experiment asks: <em>how does a spider plant metabolize stress?</em></p>
+          <p>Three converging crises form the problem context: smog and CO₂ accumulation (pollution), accelerating water scarcity as weather extremes intensify, and the electrical grid strain produced by the explosive energy demands of the AI era. <em style="font-style:normal;">Chlorophytum comosum</em> is resilient to all three — it tolerates low light, purifies air, and requires minimal water. But resilience has limits, and those limits are legible in data.</p>
+          <p>By monitoring CO₂ flux under controlled light conditions and across a natural 24-hour cycle, this experiment captures the metabolic signature of a plant navigating engineered environments. The central question remains open: is the plant's rhythmic CO₂ pattern driven by light stimulus, or by an endogenous circadian clock operating below the threshold of our instruments?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 02 EXPERIMENTATION ── -->
+    <section id="experiment">
+      <div class="section-header">
+        <div class="section-index">02</div>
+        <div class="section-title-block">
+          <h2>Experimentation</h2>
+          <div class="section-sub">Conditions + Variables</div>
+        </div>
+      </div>
+      <div class="content-col">
+        <div class="label-col">Core<br>Question</div>
+        <div class="text-col">
+          <p>Does <em style="font-style:normal;">Chlorophytum comosum</em> regulate CO₂ exchange in response to light conditions, internal circadian rhythm, or both — and can that regulation be made visible as a design material?</p>
+
+          <table class="conditions-table">
+            <thead>
+              <tr>
+                <th>Condition</th>
+                <th>Setup</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="dot"></span>Natural light — open</td>
+                <td>Ambient air exchange, no light control</td>
+                <td>Establishes noise floor; continuous CO₂ exchange with room air</td>
+              </tr>
+              <tr>
+                <td><span class="dot"></span>Darkness — sealed</td>
+                <td>Grow light off, sealed enclosure</td>
+                <td>CO₂ unexpectedly declined — likely dissolution into leaf moisture + sensor self-calibration drift</td>
+              </tr>
+              <tr>
+                <td><span class="dot"></span>Natural light — closed</td>
+                <td>Sealed enclosure, ambient daylight only</td>
+                <td>Gradual CO₂ drawdown as photosynthesis accumulates in sealed space</td>
+              </tr>
+              <tr>
+                <td><span class="dot"></span>Purple grow light</td>
+                <td>650nm + 450nm targeting chlorophyll peaks</td>
+                <td>Strongest photosynthetic drawdown — ~400 ppm spread vs. darkness</td>
+              </tr>
+              <tr>
+                <td><span class="dot"></span>24-hour cycle</td>
+                <td>Natural light, automated pyserial logging</td>
+                <td>CO₂ minimum at ~01:48 — metabolic activity persisting after dark</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout">
+            <p>On circadian rhythms in plants: yes — plants have genuine endogenous circadian clocks. In spider plants specifically, stomatal movement anticipates dawn rather than simply reacting to it: the classic signature of an internal oscillator. The clock and light reactivity are not mutually exclusive — the circadian clock gates the plant's sensitivity to light, meaning the same stimulus at dawn and at midday produces different responses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03 METHODOLOGY ── -->
+    <section id="methodology">
+      <div class="section-header">
+        <div class="section-index">03</div>
+        <div class="section-title-block">
+          <h2>Methodology</h2>
+          <div class="section-sub">Instrumentation + Protocol</div>
+        </div>
+      </div>
+      <div class="content-col">
+        <div class="label-col">Hardware</div>
+        <div class="text-col">
+          <div class="specs-grid">
+            <div class="spec-cell">
+              <div class="spec-label">Sensor</div>
+              <div class="spec-value">Adafruit SCD-40<br><em>CO₂ · Temp · Humidity</em></div>
+            </div>
+            <div class="spec-cell">
+              <div class="spec-label">Microcontroller</div>
+              <div class="spec-value">Adafruit Metro RP2040<br><em>STEMMA QT / I2C</em></div>
+            </div>
+            <div class="spec-cell">
+              <div class="spec-label">Logging Rate</div>
+              <div class="spec-value">~1 reading / 5 sec<br><em>Wall-clock timestamped</em></div>
+            </div>
+            <div class="spec-cell">
+              <div class="spec-label">Data Pipeline</div>
+              <div class="spec-value">Python · pyserial → CSV<br><em>pandas · Chart.js</em></div>
+            </div>
+          </div>
+          <p style="margin-top:24px;">Enclosure protocol: condition order run as darkness → natural closed → purple to avoid thermal carryover from a warm lamp into a cold-start baseline. Grow light allowed to thermally stabilize before sealing to reduce temperature-driven CO₂ drift artifacts.</p>
+          <p>24-hour protocol: plant in normal environment, sensor at leaf level. Automated continuous logging from evening through following afternoon. Light conditions shift naturally — producing naturalistic rather than engineered rhythm.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04 DOCUMENTATION ── -->
+    <section id="documentation">
+      <div class="section-header">
+        <div class="section-index">04</div>
+        <div class="section-title-block">
+          <h2>Documentation</h2>
+          <div class="section-sub">Process Photography + Video</div>
+        </div>
+      </div>
+
+      <div class="content-col">
+        <div class="label-col">Video</div>
+        <div class="text-col">
+          <div class="doc-video">
+            <div class="doc-label">Process documentation — setup + data collection</div>
+            <video controls style="width:100%; display:block;">
+              <source src="images/Experiment documentation.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-col" style="margin-top:48px;">
+        <div class="label-col">Photography</div>
+        <div class="text-col">
+          <div class="doc-label">Installation + specimen documentation</div>
+          <div class="image-gallery">
+            <div class="gallery-item gallery-wide">
+              <div class="img-placeholder landscape">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
+                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
+                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
+                </svg>
+                <span>Enclosure setup — full view</span>
+              </div>
+              <div class="gallery-caption">Experimental enclosure — sealed conditions</div>
+            </div>
+            <div class="gallery-item">
+              <div class="img-placeholder square">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
+                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
+                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
+                </svg>
+                <span>Purple grow<br>light condition</span>
+              </div>
+              <div class="gallery-caption">650nm + 450nm spectrum</div>
+            </div>
+            <div class="gallery-item">
+              <div class="img-placeholder square">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
+                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
+                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
+                </svg>
+                <span>Sensor placement<br>detail</span>
+              </div>
+              <div class="gallery-caption">SCD-40 at leaf level</div>
+            </div>
+            <div class="gallery-item">
+              <div class="img-placeholder square">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
+                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
+                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
+                </svg>
+                <span>Darkness<br>condition</span>
+              </div>
+              <div class="gallery-caption">Sealed — grow light off</div>
+            </div>
+            <div class="gallery-item">
+              <div class="img-placeholder square">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
+                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
+                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
+                </svg>
+                <span>Specimen<br>detail</span>
+              </div>
+              <div class="gallery-caption">Chlorophytum comosum — leaf structure</div>
+            </div>
+            <div class="gallery-item">
+              <div class="img-placeholder square">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
+                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
+                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
+                </svg>
+                <span>Data logging<br>setup</span>
+              </div>
+              <div class="gallery-caption">Metro RP2040 + pyserial pipeline</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05 DATA ── -->
+    <section id="data">
+      <div class="section-header">
+        <div class="section-index">05</div>
+        <div class="section-title-block">
+          <h2>Data</h2>
+          <div class="section-sub">CO₂ Readings + Circadian Analysis</div>
+        </div>
+      </div>
+
+      <div class="content-col">
+        <div class="label-col">20-min<br>Conditions</div>
+        <div class="text-col">
+          <div class="chart-top-row">
+            <div class="chart-label">Four light conditions — sequential timeline</div>
+            <button id="chart-toggle">view: normalized</button>
+            </div>
+            <div class="chart-legend" id="combined-legend"></div>
+          <div class="chart-wrap">
+            <canvas id="chart_combined"></canvas>
+          </div>
+          <div class="chart-bands"></div>
+          <p style="margin-top: 24px;">Each condition runs ~20 minutes, arranged sequentially on a shared time axis. The x-axis shows continuous elapsed time so you can read the CO₂ trajectory as one unbroken record — the light condition changes, but the clock keeps running.</p>
+        </div>
+      </div>
+
+      <div class="content-col" style="margin-top: 72px;">
+        <div class="label-col">24-hr<br>Circadian</div>
+        <div class="text-col">
+          <div class="data-note">Continuous logging — 19:06 Mar 28 → 18:59 Mar 29</div>
+          <div class="mini-stats">
+            <div class="stat-cell">
+              <div class="stat-number">24<span>hr</span></div>
+              <div class="stat-desc">Continuous<br>logging duration</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-number">4</div>
+              <div class="stat-desc">Light conditions<br>tested</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-number">~400<span>ppm</span></div>
+              <div class="stat-desc">CO₂ spread<br>dark vs. purple</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-number">01:48</div>
+              <div class="stat-desc">Overnight CO₂<br>minimum (anomalous)</div>
+            </div>
+          </div>
+          <div class="chart-label">24-hour natural run — wall clock time</div>
+          <div class="chart-wrap">
+            <canvas id="chart_circadian" style="height:340px;"></canvas>
+          </div>
+          <p style="margin-top: 24px;">The CO₂ minimum at 01:48 is anomalous under a purely light-reactive model — if the plant were only responding to light, CO₂ should plateau or rise through the night as photosynthesis stops. The continued decline suggests ongoing carbon fixation, passive CO₂ dissolution, or the edge of an endogenous rhythm. What the data cannot yet say: whether the rhythm is endogenous or purely reactive. A constant-light or constant-dark run of 24+ hours is required to isolate the endogenous signal — the next experiment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 06 FUTURE WORLD ── -->
+    <section id="future">
+      <div class="section-header">
+        <div class="section-index">06</div>
+        <div class="section-title-block">
+          <h2>Thesis Context</h2>
+          <div class="section-sub">Future World — Bioluminescent Infrastructure</div>
+        </div>
+      </div>
+      <div class="content-col">
+        <div class="label-col">Speculation</div>
+        <div class="text-col">
+          <div class="future-quote">"What if a plant's metabolic rhythm could be read, amplified, and returned to the built environment as energy?"</div>
+          <p>This experiment begins with a simple act of witnessing — measuring how a spider plant breathes under different light conditions and across a full day. But the trajectory it points toward is a world where that breath becomes infrastructure. In a future of limited light and strained energy supply, bioluminescent plants engineered to intensify their own photosynthetic output line building facades and inhabit interior walls — not as decoration, but as a living electrical system. They absorb sunlight and return energy to the building in real time. The building becomes a living circuit.</p>
+          <p>The symbiosis is already written into the biology: we exhale CO₂ and water the plant, the plant flourishes and returns oxygen and energy. Engineered circadian rhythms extend that loop — drawing out the plant's natural patterns, amplifying them, without disrupting the biological cycle that makes them possible. The goal is not to override the plant's clock but to synchronize with it, and to build around it.</p>
+          <p>Monitoring how the plant breathes is the first step toward knowing how to breathe with it.</p>
+          <div class="img-placeholder wide" style="margin-top:40px; max-width:800px;">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="14" stroke="#2a2a2a" stroke-width="1"/>
+              <path d="M9 16 Q16 6 23 16 Q16 26 9 16Z" stroke="#2a2a2a" stroke-width="1" fill="none"/>
+            </svg>
+            <span>TouchDesigner — bioluminescent rendering — coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="f-label">Uncontrolled Environments — Columbia GSAPP 2026</div>
+      <div class="f-label">Chlorophytum comosum — Engineered Circadian Rhythms</div>
+    </footer>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="engineered-circadian-data.js"></script>
+
+</body>
+</html>
