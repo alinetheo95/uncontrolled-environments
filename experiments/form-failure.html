@@ -6,10 +6,9 @@
   <title>Form Failure — Uncontrolled Environments</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
- 
 </head>
 <body>
- 
+
   <!-- NAV -->
   <nav>
     <div class="nav-left">Uncontrolled Environments — GSAPP Biocomputation Lab</div>
@@ -23,13 +22,12 @@
       <a href="#future">06 Future World</a>
     </div>
   </nav>
- 
+
   <div class="page">
- 
+
     <!-- ── HERO ── -->
     <div class="hero hero-landscape">
- 
-      <!-- title + image side by side -->
+
       <div class="hero-top">
         <div>
           <div class="thesis-label">Uncontrolled Environments — Columbia GSAPP 2026</div>
@@ -47,8 +45,7 @@
           </div>
         </div>
       </div>
- 
-      <!-- meta + description + tags below, full width -->
+
       <div class="hero-bottom">
         <div>
           <div class="meta-grid">
@@ -84,9 +81,9 @@
           </div>
         </div>
       </div>
- 
+
     </div>
- 
+
     <!-- ── 00 PLANT LOGIC + ARCHITECTURAL SYSTEM ── -->
     <section id="logic">
       <div class="section-header">
@@ -112,7 +109,7 @@
         </div>
       </div>
     </section>
- 
+
     <!-- ── 01 ABSTRACT ── -->
     <section id="abstract">
       <div class="section-header">
@@ -130,7 +127,7 @@
         </div>
       </div>
     </section>
- 
+
     <!-- ── 02 EXPERIMENTATION ── -->
     <section id="experiment">
       <div class="section-header">
@@ -144,13 +141,13 @@
         <div class="label-col">Core<br>Experiment</div>
         <div class="text-col">
           <p>By placing one electrode at a stem that appears dead and one electrode further along the same stem where new growth is forming, we sense the direction and differential of electrical conductivity — tracing the moment the plant reclassifies dead material as a new origin point.</p>
- 
+
           <div class="callout">
             <p>The conductivity differential is not incidental to regeneration — it is the process made legible. The sensor does not intervene. It witnesses.</p>
           </div>
- 
+
           <p>Electrodes are placed at three zones along a single stem: dead tissue, the wound/node junction, and actively developing new growth. The differential between these readings is the primary data stream — it traces exactly where in the regeneration sequence each part of the plant sits at any given moment.</p>
- 
+
           <table class="conditions-table">
             <thead>
               <tr>
@@ -180,7 +177,7 @@
         </div>
       </div>
     </section>
- 
+
     <!-- ── 03 METHODOLOGY ── -->
     <section id="methodology">
       <div class="section-header">
@@ -204,11 +201,11 @@
             </div>
             <div class="spec-cell">
               <div class="spec-label">Microcontroller</div>
-              <div class="spec-value">Adafruit Metro RP2040<br><em>I2C / analog pin</em></div>
+              <div class="spec-value">Arduino Leonardo<br><em>Analog pin A0</em></div>
             </div>
             <div class="spec-cell">
               <div class="spec-label">Data Pipeline</div>
-              <div class="spec-value">Arduino → pyserial → CSV<br><em>Continuous logging</em></div>
+              <div class="spec-value">Arduino → pyserial → CSV<br><em>~10 Hz continuous logging</em></div>
             </div>
           </div>
           <p>Electrode placement protocol: Ag/AgCl electrodes wrapped around the stem at each zone rather than pierced through the tissue. Piercing triggers a wound response and corrupts the baseline reading. Plant staged vertically against a wall so the arrangement reads as a building section — dead stems at the top, wound zone at the midpoint, new growth emerging at the base.</p>
@@ -216,7 +213,7 @@
         </div>
       </div>
     </section>
- 
+
     <!-- ── 04 DOCUMENTATION ── -->
     <section id="documentation">
       <div class="section-header">
@@ -284,7 +281,7 @@
                 </svg>
                 <span>Circuit<br>detail</span>
               </div>
-              <div class="gallery-caption">Metro RP2040 + electrode wiring</div>
+              <div class="gallery-caption">Arduino Leonardo + electrode wiring</div>
             </div>
             <div class="gallery-item">
               <div class="img-placeholder square">
@@ -301,7 +298,7 @@
         </div>
       </div>
     </section>
- 
+
     <!-- ── 05 DATA ── -->
     <section id="data">
       <div class="section-header">
@@ -311,18 +308,60 @@
           <div class="section-sub">Conductivity Readings + Differential Analysis</div>
         </div>
       </div>
-      <div class="content-col">
-        <div class="label-col">EC<br>Differential</div>
+
+      <!-- stats row -->
+      <div class="content-col" style="margin-bottom: 56px;">
+        <div class="label-col">Summary</div>
         <div class="text-col">
-          <div class="data-note">Three-channel continuous logging — dead · wound · growth</div>
-          <div class="chart-label">Conductivity differential — three zones over time</div>
-          <div class="chart-wrap">
+          <div class="mini-stats">
+            <div class="stat-cell">
+              <div class="stat-number" id="stat_ff_readings">—</div>
+              <div class="stat-desc">Recorded<br>Readings</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-number" id="stat_ff_sessions">—<span>hr</span></div>
+              <div class="stat-desc">Modeled<br>Cycle</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-number" id="stat_ff_range">—</div>
+              <div class="stat-desc">Conductance<br>Range</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-number" id="stat_ff_trough">—</div>
+              <div class="stat-desc">Trough —<br>Growth Trigger</div>
+            </div>
           </div>
-          <p>Continuous three-channel differential measurement captures the electrical gradient across the decay-to-regeneration sequence in real time. The conductivity gap between Zone 01 (dead) and Zone 03 (new growth) is the primary metric — a widening differential correlates with active meristematic reactivation.</p>
         </div>
       </div>
+
+      <!-- raw chart -->
+      <div class="content-col" style="margin-bottom: 56px;">
+        <div class="label-col">Raw<br>Signal</div>
+        <div class="text-col">
+          <div class="data-note">Apr 17–18 · 24hr recorded · 24hr mirrored extrapolation · 48hr modeled cycle</div>
+          <div id="ff_legend" class="chart-legend"></div>
+          <div class="chart-label">Conductance — wound phase + modeled recovery cycle</div>
+          <div class="chart-wrap" style="height: 320px;">
+            <canvas id="chart_ff_combined"></canvas>
+          </div>
+          <p>The first 24 hours are recorded data — the electrical conductivity of the stem between dead tissue and new growth, captured continuously from 18:03 on April 17. The signal begins high (~0.41 µS), reflecting active ionic transport in living tissue, then declines to a trough (~0.18 µS) as the wound response progresses and resistance increases across the dying stem section. The second 24 hours are a modeled extrapolation: the recorded arc mirrored symmetrically to produce a full wound-recovery cycle. In Tradescantia, the trough of the wound signal is the biological trigger for meristematic reactivation — the point at which dead tissue becomes scaffold and new growth begins to differentiate. The recovery phase models the conductance climbing back as new cellular activity restores ionic flow through the regenerating tissue.</p>
+        </div>
+      </div>
+
+      <!-- smoothed avg chart -->
+      <div class="content-col">
+        <div class="label-col">Smoothed<br>Average</div>
+        <div class="text-col">
+          <div class="chart-label">Running average — cycle envelope visible</div>
+          <div class="chart-wrap" style="height: 320px;">
+            <canvas id="chart_ff_avg"></canvas>
+          </div>
+          <p>The smoothed average reveals the cycle envelope clearly: a slow descent into the wound trough followed by a symmetric recovery. In the generative model, high conductance maps to high growth density — the DLA cluster is dense and actively expanding. Low conductance maps to the decay trigger — the point at which building geometry begins to dissolve and new growth origins are seeded. The trough is not the end state. It is the instruction.</p>
+        </div>
+      </div>
+
     </section>
- 
+
     <!-- ── 06 FUTURE WORLD ── -->
     <section id="future">
       <div class="section-header">
@@ -345,20 +384,21 @@
               <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
               <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
             </svg>
-            <span>Grasshopper — reaction-diffusion driven by live EC data — coming soon</span>
+            <span>Grasshopper — DLA growth driven by EC decay threshold — coming soon</span>
           </div>
         </div>
       </div>
     </section>
- 
+
     <!-- FOOTER -->
     <footer>
       <div class="f-label">Uncontrolled Environments — Columbia GSAPP 2026</div>
       <div class="f-label">Tradescantia zebrina — Form Failure</div>
     </footer>
- 
+
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="form-failure.js"></script>
 
 </body>

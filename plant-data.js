@@ -235,7 +235,7 @@ function initScrollReveal() {
 }
 
 // fetch data then build everything
-fetch('co2_data.json')
+fetch('data/co2_data.json')
   .then(res => res.json())
   .then(DATA => {
     buildIndividualCharts(DATA);
@@ -243,4 +243,4 @@ fetch('co2_data.json')
     buildCircadianChart(DATA);
     initScrollReveal();
   })
-  .catch(err => console.error('Failed to load co2_data.json:', err));
+  .catch(err => console.error('Failed to load data/co2_data.json:', err));

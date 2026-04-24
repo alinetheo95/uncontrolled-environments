@@ -5,61 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Living Feedback — Monstera Temperature Sensing</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-  <style>
-    /* ── LIVING FEEDBACK — page-specific additions ── */
-
-    /* Sensor dot colors */
-    :root {
-      --c-hot:     #c0392b;
-      --c-mid:     #e67e22;
-      --c-ambient: #6ab187;
-    }
-    .dot.hot     { background: var(--c-hot); }
-    .dot.mid     { background: var(--c-mid); }
-    .dot.ambient { background: var(--c-ambient); }
-
-    /* Protocol table — same pattern as conditions-table in shared CSS */
-    .protocol-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 32px 0;
-      max-width: 780px;
-    }
-    .protocol-table th {
-      font-size: 9px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--dim);
-      text-align: left;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
-      font-weight: 400;
-    }
-    .protocol-table td {
-      font-size: 12px;
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      color: #aaaaaa;
-      vertical-align: top;
-      line-height: 1.6;
-    }
-    .protocol-table tr:last-child td { border-bottom: none; }
-    .protocol-table td:first-child { color: var(--text); }
-
-    /* Placeholder for chart/video areas pending data */
-    .chart-placeholder {
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--dim2);
-      text-align: center;
-      line-height: 2;
-    }
-
-    /* tall aspect ratio for hero image — not in shared CSS */
-    .img-placeholder.tall { aspect-ratio: 3/4; }
-  </style>
 </head>
 <body>
 
@@ -90,14 +37,7 @@
           <div class="subtitle">Monstera Temperature Sensing</div>
         </div>
         <div class="hero-image">
-          <div class="img-placeholder wide">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-              <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-              <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-            </svg>
-            <span>Specimen photograph — Monstera deliciosa</span>
-          </div>
+          <img src="images/interaction-sketch-03.png" alt="Specimen photograph — Monstera deliciosa" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
       </div>
 
@@ -230,7 +170,32 @@
       </div>
     </section>
 
-
+    <!-- ── 02b LOGIC ── -->
+    <section id="logic">
+      <div class="section-header">
+        <div class="section-index"></div>
+        <div class="section-title-block">
+          <h2>Biological + Architectural Logic</h2>
+          <div class="section-sub">Plant Logic · Architectural System</div>
+        </div>
+      </div>
+      <div class="content-col">
+        <div class="label-col">Plant Logic</div>
+        <div class="text-col">
+          <p style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px;">How does a plant adapt to external and internal stimuli?</p>
+          <div class="logic-grid">
+            <div class="logic-cell">
+              <div class="spec-label" style="margin-bottom: 16px;">Thermoregulation</div>
+              <p>The plant continuously monitors the vapor pressure differential between its internal tissue and the surrounding air, responding by modulating stomatal aperture to control the rate of water release. When heat increases, transpiration accelerates, drawing water upward through the xylem via cohesion-tension and cooling the leaf surface through evaporation. When the hydraulic system reaches its limit, stomata close — a protective signal that marks the boundary of the plant's regulatory range. The organism is never passive; it is always reading its environment and adjusting its internal state in response.</p>
+            </div>
+            <div class="logic-cell">
+              <div class="spec-label" style="margin-bottom: 16px;">Architectural System</div>
+              <p>Autonomous living systems that sense, respond, and self-regulate without human intervention. The building is not a static object engineered for a fixed climate but an adaptive organism continuously negotiating with its environment, its performance emerging from biological feedback operating at scales and speeds imperceptible to human observation. Structure, enclosure, and climate system collapse into a single living material that computes its own response to the conditions it inhabits.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ── 03 METHODOLOGY ── -->
     <section id="methodology">
@@ -279,33 +244,27 @@
                 <th>Phase</th>
                 <th>Duration</th>
                 <th>Heater State</th>
-                <th>Expected Signal</th>
+                <th>Observed Signal</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Baseline</td>
-                <td>30 min</td>
+                <td>5 min</td>
                 <td>Off</td>
-                <td>All three sensors equilibrate to ambient</td>
+                <td>All three sensors stable at ambient — root ~23°C, leaf ~18°C, hot zone ~22°C</td>
               </tr>
               <tr>
-                <td>Ramp</td>
-                <td>Variable</td>
-                <td>On — low (750W)</td>
-                <td>Gradient establishes; hot zone diverges</td>
-              </tr>
-              <tr>
-                <td>Sustained stress</td>
-                <td>1–2 hrs</td>
+                <td>Heat Stress</td>
+                <td>5 min</td>
                 <td>On — high (1500W)</td>
-                <td>Transpiration response; RH rise in hot zone</td>
+                <td>Hot zone climbs to 75°C+; leaf burn occurs almost immediately; humidity collapses</td>
               </tr>
               <tr>
                 <td>Recovery</td>
-                <td>Open</td>
+                <td>5 min</td>
                 <td>Off</td>
-                <td>Gradient collapse; return to baseline</td>
+                <td>Temperature declines; root zone stabilizes; leaf tissue already damaged — no normal recovery</td>
               </tr>
             </tbody>
           </table>
@@ -331,8 +290,10 @@
         <div class="label-col">Video</div>
         <div class="text-col">
           <div class="doc-label">Process documentation — setup + data collection</div>
-          <div class="chart-wrap" style="aspect-ratio: 16/9; min-height: unset;">
-            <div class="chart-placeholder">Video documentation<br>coming soon</div>
+          <div class="chart-wrap" style="aspect-ratio: 16/9; min-height: unset; padding: 0; overflow: hidden;">
+            <video autoplay muted playsinline controls style="width:100%; height:100%; object-fit:cover; display:block;">
+              <source src="images/living-feedback.mp4" type="video/mp4" >
+            </video>
           </div>
         </div>
       </div>
@@ -343,70 +304,22 @@
           <div class="doc-label">Installation + specimen documentation</div>
           <div class="image-gallery">
             <div class="gallery-item gallery-wide">
-              <div class="img-placeholder landscape">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Acrylic enclosure — full section view</span>
-              </div>
-              <div class="gallery-caption">Experimental enclosure — architectural section model</div>
+              <img src="images/living-feedback-1.jpeg" alt="Acrylic enclosure — full section view" style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <div class="gallery-item gallery-wide">
+              <img src="images/living-feedback-2.jpeg" alt="SHT41 — leaf boundary" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Sensor placement<br>detail</span>
-              </div>
-              <div class="gallery-caption">SHT41 — leaf boundary</div>
+              <img src="images/living-feedback-3.jpeg" alt="SHT41 — soil surface" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Root zone<br>sensor</span>
-              </div>
-              <div class="gallery-caption">SHT41 — soil surface</div>
+              <img src="images/living-feedback-4.jpeg" alt="Black+Decker BHDC201" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Heater<br>setup</span>
-              </div>
-              <div class="gallery-caption">Black+Decker BHDC201</div>
+              <img src="images/living-feedback-5.jpeg" alt="Monstera deliciosa — leaf structure" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Specimen<br>detail</span>
-              </div>
-              <div class="gallery-caption">Monstera deliciosa — leaf structure</div>
-            </div>
-            <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Data logging<br>setup</span>
-              </div>
-              <div class="gallery-caption">Metro RP2040 + TCA9548A mux</div>
+              <img src="images/living-feedback-6.jpeg" alt="Metro RP2040 + TCA9548A mux" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
           </div>
         </div>
@@ -426,42 +339,83 @@
       <div class="content-col">
         <div class="label-col">Thermal<br>Gradient</div>
         <div class="text-col">
-          <div class="data-note">Pending — data collection in progress</div>
+          <div class="data-note">Loading — monstera_data.json</div>
           <div class="mini-stats">
             <div class="stat-cell">
-              <div class="stat-number">3</div>
-              <div class="stat-desc">Sensor<br>positions</div>
+              <div class="stat-number" id="stat-peak-hot">—<span>°C</span></div>
+              <div class="stat-desc">Peak hot<br>zone temp</div>
             </div>
             <div class="stat-cell">
-              <div class="stat-number">4</div>
-              <div class="stat-desc">Experiment<br>phases</div>
+              <div class="stat-number" id="stat-peak-leaf">—<span>°C</span></div>
+              <div class="stat-desc">Peak leaf<br>surface temp</div>
             </div>
             <div class="stat-cell">
-              <div class="stat-number">32<span>°C</span></div>
-              <div class="stat-desc">Monstera<br>distress threshold</div>
+              <div class="stat-number" id="stat-min-rh">—<span>%</span></div>
+              <div class="stat-desc">Min hot zone<br>humidity</div>
             </div>
             <div class="stat-cell">
-              <div class="stat-number">5<span>sec</span></div>
-              <div class="stat-desc">Logging<br>interval</div>
+              <div class="stat-number" id="stat-samples">—<span>s</span></div>
+              <div class="stat-desc">Total<br>samples</div>
+            </div>
+          </div>
+
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-line" style="background: #c0392b;"></div>
+              <span class="legend-text">Hot Zone</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-line" style="background: #e67e22;"></div>
+              <span class="legend-text">Root Zone</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-line" style="background: #6ab187;"></div>
+              <span class="legend-text">Leaf Surface</span>
             </div>
           </div>
 
           <div class="chart-label">Three-channel thermal gradient — temperature over time</div>
-          <div class="chart-wrap">
-            <div class="chart-placeholder">Temperature data<br>will populate here after experiment run</div>
+          <div class="chart-wrap" id="chart-temp" style="min-height: 320px; padding: 16px;"></div>
+
+          <div class="chart-bands" style="grid-template-columns: repeat(3,1fr); margin-top: 0;">
+            <div class="chart-band">
+              <div class="chart-band-label">Baseline</div>
+              <div class="chart-band-range">0 – 300s · heater off</div>
+            </div>
+            <div class="chart-band">
+              <div class="chart-band-label">Heat Stress</div>
+              <div class="chart-band-range">300 – 600s · heater on · leaf burn</div>
+            </div>
+            <div class="chart-band">
+              <div class="chart-band-label">Recovery</div>
+              <div class="chart-band-range">600s+ · heater off</div>
+            </div>
           </div>
-          <p style="margin-top: 24px;">Each sensor channel logged simultaneously. The differential between the hot zone (SHT41 #1) and the leaf boundary reading reveals the plant's active thermoregulation — a cooled boundary layer relative to ambient indicates transpiration in progress. A plateau or decline in hot-zone humidity above 32°C marks stomatal closure and the plant entering heat shutdown.</p>
+
+          <p style="margin-top: 24px;">The hot zone climbs rapidly to a peak exceeding 75°C while the leaf surface, initially cooler, rises as thermoregulation fails. The leaf burn occurred almost immediately after the heater was turned on — visible in the data as the point where the leaf temperature diverges sharply upward and humidity in the hot zone begins its collapse. The root zone remains the most thermally stable channel throughout, reflecting the hydraulic buffer of the soil system.</p>
         </div>
       </div>
 
       <div class="content-col" style="margin-top: 72px;">
         <div class="label-col">Humidity<br>Response</div>
         <div class="text-col">
-          <div class="chart-label">Relative humidity — all three zones</div>
-          <div class="chart-wrap">
-            <div class="chart-placeholder">Humidity data<br>will populate here after experiment run</div>
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-line" style="background: #c0392b;"></div>
+              <span class="legend-text">Hot Zone RH</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-line" style="background: #e67e22;"></div>
+              <span class="legend-text">Root Zone RH</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-line" style="background: #6ab187;"></div>
+              <span class="legend-text">Leaf Surface RH</span>
+            </div>
           </div>
-          <p style="margin-top: 24px;">Rising humidity in the hot zone indicates active transpiration — the Monstera releasing moisture under stress. A subsequent drop marks stomatal closure. The root zone sensor captures the hydraulic lag between soil moisture uptake and leaf-level response, making the Cohesion-Tension mechanism visible as a temporal differential across the three channels.</p>
+          <div class="chart-label">Relative humidity — all three zones</div>
+          <div class="chart-wrap" id="chart-rh" style="min-height: 320px; padding: 16px;"></div>
+          <p style="margin-top: 24px;">The root zone humidity holds steady above 87% throughout — soil moisture is not the limiting factor. The hot zone humidity collapses from ~30% to below 6% under sustained heat, marking the point where the air around the leaf is too dry for transpiration to continue. The leaf surface humidity decline tracks the stomatal closure sequence: the plant's attempt to regulate is legible as a falling curve, ending where the tissue fails.</p>
         </div>
       </div>
     </section>
@@ -501,8 +455,8 @@
 
   </div>
 
-<script src="living-feedback.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="living-feedback.js"></script>
 
 </body>
 </html>

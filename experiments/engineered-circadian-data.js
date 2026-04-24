@@ -332,10 +332,10 @@ function initScrollReveal() {
 document.addEventListener('DOMContentLoaded', initScrollReveal);
 
 // Charts require a local server (python3 -m http.server 8000)
-fetch('../co2_data.json')
+fetch('../data/co2_data.json')
   .then(res => res.json())
   .then(DATA => {
     buildCombinedChart(DATA);
     buildCircadianChart(DATA);
   })
-  .catch(err => console.warn('../co2_data.json not loaded. Run via local server, not file://', err));
+  .catch(err => console.warn('../data/co2_data.json not loaded. Run via local server, not file://', err));
