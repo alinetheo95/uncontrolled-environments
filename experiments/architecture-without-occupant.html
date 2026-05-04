@@ -165,7 +165,7 @@
               <tr>
                 <td><span class="dot"></span>Reishi Control</td>
                 <td>Reishi alone, identical enclosure and substrate — isolates fungal atmospheric signature</td>
-                <td>48 hours</td>
+                <td>23.3 hours</td>
               </tr>
               <tr>
                 <td><span class="dot"></span>Pothos Control</td>
@@ -204,16 +204,12 @@
               <div class="spec-value">Adafruit APDS9960<br><em>STEMMA QT · I2C · 0x39</em></div>
             </div>
             <div class="spec-cell">
-              <div class="spec-label">Electrical Conductivity</div>
-              <div class="spec-value">Ag/AgCl Electrodes · ADS1115<br><em>INA128 instrumentation amp</em></div>
-            </div>
-            <div class="spec-cell">
               <div class="spec-label">Microcontroller</div>
               <div class="spec-value">Adafruit Metro RP2040<br><em>STEMMA QT / I2C</em></div>
             </div>
             <div class="spec-cell">
               <div class="spec-label">Data Pipeline</div>
-              <div class="spec-value">Arduino → pyserial → CSV<br><em>Continuous logging</em></div>
+              <div class="spec-value">Arduino → SD Card → CSV<br><em>5-second interval logging</em></div>
             </div>
           </div>
           <p style="margin-top:24px;">The sensor stack is daisy-chained via STEMMA QT to a single Metro RP2040, logging to a microSD card at 5-second intervals. All conditions use the same hardware configuration so readings are directly comparable across runs.</p>
@@ -241,70 +237,60 @@
           <div class="doc-label">Installation + specimen documentation</div>
           <div class="image-gallery">
             <div class="gallery-item gallery-wide">
-              <div class="img-placeholder landscape">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Enclosure setup — cohabitation condition</span>
-              </div>
-              <div class="gallery-caption">Reishi × Pothos — shared substrate</div>
+              <img src="images/architecture-1.jpeg" alt="Architecture Without an Occupant — 1">
+              <div class="gallery-caption">architecture-1</div>
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Reishi mycelium<br>block</span>
-              </div>
-              <div class="gallery-caption">Ganoderma lucidum — colonized substrate</div>
+              <img src="images/architecture-2.jpeg" alt="Architecture Without an Occupant — 2">
+              <div class="gallery-caption">architecture-2</div>
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Electrode<br>placement detail</span>
-              </div>
-              <div class="gallery-caption">Ag/AgCl — mycelium + root zone</div>
+              <img src="images/architecture-3.jpeg" alt="Architecture Without an Occupant — 3">
+              <div class="gallery-caption">architecture-3</div>
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Stress condition<br>enclosure</span>
-              </div>
-              <div class="gallery-caption">Forced stress — degraded conditions</div>
+              <img src="images/architecture-4.jpeg" alt="Architecture Without an Occupant — 4">
+              <div class="gallery-caption">architecture-4</div>
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Pothos root<br>zone detail</span>
-              </div>
-              <div class="gallery-caption">Epipremnum aureum — root system</div>
+              <img src="images/architecture-5.jpeg" alt="Architecture Without an Occupant — 5">
+              <div class="gallery-caption">architecture-5</div>
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Sensor array<br>detail</span>
-              </div>
-              <div class="gallery-caption">Metro RP2040 + full sensor stack</div>
+              <img src="images/architecture-6.jpeg" alt="Architecture Without an Occupant — 6">
+              <div class="gallery-caption">architecture-6</div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/architecture-7.jpeg" alt="Architecture Without an Occupant — 7">
+              <div class="gallery-caption">architecture-7</div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/architecture-8.jpeg" alt="Architecture Without an Occupant — 8">
+              <div class="gallery-caption">architecture-8</div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/architecture-9.jpeg" alt="Architecture Without an Occupant — 9">
+              <div class="gallery-caption">architecture-9</div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/architecture-10.jpeg" alt="Architecture Without an Occupant — 10">
+              <div class="gallery-caption">architecture-10</div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/architecture-11.jpeg" alt="Architecture Without an Occupant — 11">
+              <div class="gallery-caption">architecture-11</div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/architecture-12.jpeg" alt="Architecture Without an Occupant — 12">
+              <div class="gallery-caption">architecture-12</div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/architecture-13.jpeg" alt="Architecture Without an Occupant — 13">
+              <div class="gallery-caption">architecture-13</div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/architecture-14.jpeg" alt="Architecture Without an Occupant — 14">
+              <div class="gallery-caption">architecture-14</div>
             </div>
           </div>
         </div>
@@ -327,20 +313,23 @@
           <div class="mini-stats">
             <div class="stat-cell">
               <div class="stat-number">68.5<span>hr</span></div>
-              <div class="stat-desc">Continuous<br>logging duration</div>
+              <div class="stat-desc">Cohabitation<br>run duration</div>
             </div>
             <div class="stat-cell">
-              <div class="stat-number">49<span>k</span></div>
-              <div class="stat-desc">Total rows<br>collected</div>
+              <div class="stat-number">23.3<span>hr</span></div>
+              <div class="stat-desc">Reishi control<br>run duration</div>
             </div>
             <div class="stat-cell">
-              <div class="stat-number">3,370<span>ppm</span></div>
-              <div class="stat-desc">Peak CO₂ —<br>reishi dominance</div>
+              <div class="stat-number">3,806<span>ppm</span></div>
+              <div class="stat-desc">Peak CO₂ —<br>reishi only</div>
             </div>
             <div class="stat-cell">
-              <div class="stat-number">54<span>pt</span></div>
-              <div class="stat-desc">Humidity swing<br>31% → 84%</div>
+              <div class="stat-number">3,351<span>ppm</span></div>
+              <div class="stat-desc">Peak CO₂ —<br>cohabitation</div>
             </div>
+          </div>
+          <div class="callout">
+            <p>Green + purple — Reishi + Pothos cohabitation (solid lines). Blue — Reishi only control (dashed lines). The difference between the two CO₂ curves is the pothos's photosynthetic contribution: the plant holds the shared atmosphere measurably below what the reishi produces alone.</p>
           </div>
         </div>
       </div>
@@ -348,22 +337,22 @@
       <div class="content-col" style="margin-top:56px;">
         <div class="label-col">CO₂ +<br>Humidity</div>
         <div class="text-col">
-          <div class="doc-label">CO₂ accumulation vs. humidity oscillation — 68.5 hours</div>
+          <div class="doc-label">CO₂ accumulation vs. humidity oscillation — cohabitation vs. reishi control</div>
           <div class="chart-wrap" style="height:320px; padding:16px;">
             <canvas id="chart-co2-hum"></canvas>
           </div>
-          <p style="margin-top:20px;">CO₂ climbs from ambient (651 ppm) to a peak of 3,351 ppm at hour 67 — driven by reishi respiration overwhelming the pothos's photosynthetic capacity under low light. Humidity oscillates across a 54-point range throughout, reflecting the day/night cycle of pothos transpiration against the constant moisture output of the mycelium. The two signals move in different rhythms: CO₂ drifts slowly upward over days; humidity oscillates within hours. This is the microclimate negotiation — two organisms producing a shared atmosphere neither designed.</p>
+          <p style="margin-top:20px;">The reishi control reaches a peak CO₂ of 3,806 ppm — higher than the cohabitation peak of 3,351 ppm. The gap between the two curves is the pothos's photosynthetic contribution: the plant absorbs enough of the fungus's CO₂ output to measurably suppress atmospheric accumulation, even while competing for the same substrate. The humidity curves track closely between conditions, confirming the reishi dominates moisture output regardless of the pothos's presence. The oscillation within both humidity signals reflects the lab's day/night cycle — an external rhythm imprinting on the enclosure's internal atmosphere.</p>
         </div>
       </div>
 
       <div class="content-col" style="margin-top:56px;">
         <div class="label-col">Temp +<br>Light</div>
         <div class="text-col">
-          <div class="doc-label">Temperature drift + ambient light — 68.5 hours</div>
+          <div class="doc-label">Temperature drift + ambient light — cohabitation vs. reishi control</div>
           <div class="chart-wrap" style="height:320px; padding:16px;">
             <canvas id="chart-temp-soil"></canvas>
           </div>
-          <p style="margin-top:20px;">Temperature rises gradually from 21.1°C to 26.9°C over the full run — partly tracking ambient room temperature, partly reflecting metabolic heat from active reishi fruiting. Light counts oscillate with the day/night cycle of the lab, making the circadian rhythm of the external environment legible against the slow internal drift of the enclosure's own atmosphere. The soil sensor remained at saturation throughout — the substrate held maximum moisture for the duration of the run, with both organisms drawing from a shared pool that did not measurably deplete within 68 hours.</p>
+          <p style="margin-top:20px;">Temperature tracks closely between the cohabitation and reishi-only conditions, confirming that the thermal environment is driven primarily by the fungus's metabolic heat and ambient room temperature rather than the plant. Light counts in the cohabitation run oscillate with the lab's day/night cycle — the proximity sensor capturing the rhythm of the external environment against the sealed internal atmosphere of the enclosure.</p>
         </div>
       </div>
 
@@ -384,14 +373,7 @@
           <div class="future-quote">"How will these species react to and transform the remains of the built environment after human extinction?"</div>
           <p>Ruins are not decay — they are productive substrate. The accelerating collapse of human-built environments under climate pressure produces not absence but material opportunity for organisms that do not require human comfort to persist. The residue of human construction becomes the condition for non-human reorganization. This experiment models that process at the scale of a single enclosure: two species, no occupant, negotiating the terms of cohabitation without instruction.</p>
           <p>The question it opens toward is architectural. What does a building look like when it is designed for non-human survival rather than human comfort — can the plant and the fungus themselves become the system? The growth is not designed. It is computed by the organisms themselves, in real time, in response to conditions they are both creating and enduring.</p>
-          <div class="img-placeholder wide" style="margin-top:40px; max-width:900px;">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-              <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-              <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-            </svg>
-            <span>Future world rendering — coming soon</span>
-          </div>
+          <img src="images/architecture-without-edit.png" alt="Future world rendering — post-human infrastructure" style="margin-top:40px; max-width:900px; width:100%; display:block;">
         </div>
       </div>
     </section>

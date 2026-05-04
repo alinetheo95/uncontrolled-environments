@@ -42,11 +42,11 @@
         <div>
           <div class="meta-grid">
             <div class="meta-cell">
-              <div class="meta-label">Specimen A</div>
+              <div class="meta-label">Species A</div>
               <div class="meta-value">Chlorophytum comosum</div>
             </div>
             <div class="meta-cell">
-              <div class="meta-label">Specimen B</div>
+              <div class="meta-label">Species B</div>
               <div class="meta-value">Pleurotus ostreatus</div>
             </div>
             <div class="meta-cell">
@@ -54,8 +54,8 @@
               <div class="meta-value">Mutualistic Interaction</div>
             </div>
             <div class="meta-cell">
-              <div class="meta-label">Primary Measurement</div>
-              <div class="meta-value">Electrical Conductivity</div>
+              <div class="meta-label">Molecular Level</div>
+              <div class="meta-value">Nutrient Exchange</div>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@
 
       <!-- Spider Plant -->
       <div class="content-col">
-        <div class="label-col">Specimen A<br>Spider Plant</div>
+        <div class="label-col">Species A<br>Spider Plant</div>
         <div class="text-col">
           <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#555; margin-bottom:20px;">Chlorophytum comosum — Bioelectrical Response to Human Interaction</p>
           <table class="conditions-table">
@@ -146,11 +146,6 @@
             </thead>
             <tbody>
               <tr>
-                <td><span class="dot"></span>Talk / play music</td>
-                <td>Piezo vibration + ADS1115</td>
-                <td>Acoustic pressure, bioelectrical shift</td>
-              </tr>
-              <tr>
                 <td><span class="dot"></span>Touch</td>
                 <td>ADS1115 + Ag/AgCl electrodes</td>
                 <td>Thigmomorphogenetic EC spike</td>
@@ -162,13 +157,13 @@
               </tr>
               <tr>
                 <td><span class="dot"></span>Proximity</td>
-                <td>MLX90614 + APDS9960</td>
-                <td>IR thermal gradient, light/shadow</td>
+                <td>APDS9960</td>
+                <td>Light/shadow change</td>
               </tr>
               <tr>
-                <td><span class="dot"></span>Show a drawing</td>
-                <td>APDS9960 + bioelectrical</td>
-                <td>Light change + baseline EC response</td>
+                <td><span class="dot"></span>Water</td>
+                <td>Adafruit STEMMA Soil Sensor</td>
+                <td>Capacitive moisture shift</td>
               </tr>
             </tbody>
           </table>
@@ -177,7 +172,7 @@
 
       <!-- Blue Oyster -->
       <div class="content-col" style="margin-top: 56px;">
-        <div class="label-col">Specimen B<br>Blue Oyster</div>
+        <div class="label-col">Species B<br>Blue Oyster</div>
         <div class="text-col">
           <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#555; margin-bottom:20px;">Pleurotus ostreatus — Bioelectrical Response to Human Touch</p>
           <table class="conditions-table">
@@ -259,15 +254,6 @@
           </div>
           <p style="margin-top:24px;">Electrode protocol: Ag/AgCl pellet electrodes clipped to leaf petiole for spider plant; needle electrodes inserted into mycelium base and mushroom stem for blue oyster. Each interaction condition held for a fixed duration with a baseline period before and after — producing a comparative record of signal behavior across interaction types.</p>
           <p>The sensor array makes biological computation legible without intervening in it. Sensors function as witnesses, not controllers.</p>
-        </div>
-      </div>
-
-      <div class="content-col" style="margin-top: 56px;">
-        <div class="label-col">Molecular<br>Interaction</div>
-        <div class="text-col">
-          <p>In the blue oyster mushroom, touch and acoustic stimulation trigger electrochemical cascades through the mycelial network — action potential-like impulses propagate between fruit bodies within seconds, mediated by ion flux across hyphal membranes. The organism has no nervous system, yet produces coordinated electrical responses that resemble neuronal signaling in their wave-packet structure and inter-body propagation.</p>
-          <p>In the spider plant, human proximity introduces thermal gradients detected at the leaf boundary, while breath delivers a localized CO₂ and humidity pulse that transiently alters stomatal aperture and turgor pressure. Touch activates thigmomorphogenetic pathways — mechanical deformation of cell walls triggers calcium ion release, which cascades through the plant's vascular tissue as a measurable voltage shift.</p>
-          <p>Both organisms operate distributed signal networks without centralized processing: computation through chemistry, transmitted electrically.</p>
         </div>
       </div>
 
@@ -389,7 +375,6 @@
       <div class="content-col">
         <div class="label-col">Spider Plant<br>EC Response</div>
         <div class="text-col">
-          <div class="data-note">Data collection in progress — interaction sessions pending</div>
           <div class="mini-stats">
             <div class="stat-cell">
               <div class="stat-number">8</div>

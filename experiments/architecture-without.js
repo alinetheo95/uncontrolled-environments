@@ -1,16 +1,20 @@
 // ── ARCHITECTURE WITHOUT AN OCCUPANT
 // Ganoderma lucidum × Epipremnum aureum
-// Data loaded from data/architecture_reishi_pothos_data.json
+// Data loaded from data/ folder
+
+// ── COLOR PALETTE ──
+// Cohabitation: green #88c9a0 (CO2), purple #c39bd3 (humidity), orange #e67e22 (temp), green #6ab187 (light)
+// Reishi only:  blue #7eb8d4 (CO2), blue-grey #8fa8b8 (humidity), blue-grey #7a9aaa (temp)
 
 // ── DUAL AXIS CHART BUILDER ──
-function buildDualChart(canvasId, ds1, ds2, y1Label, y2Label, y1Min, y1Max, y2Min, y2Max) {
+function buildDualChart(canvasId, datasets, y1Label, y2Label, y1Min, y1Max, y2Min, y2Max) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
   return new Chart(ctx, {
     type: 'line',
-    data: { datasets: [ds1, ds2] },
+    data: { datasets },
     options: {
       animation: false,
       responsive: true,
@@ -57,8 +61,7 @@ function buildDualChart(canvasId, ds1, ds2, y1Label, y2Label, y1Min, y1Max, y2Mi
           border: { color: '#1e1e1e' }
         },
         y: {
-          min: y1Min,
-          max: y1Max,
+          min: y1Min, max: y1Max,
           position: 'left',
           grid: { color: '#1e1e1e', lineWidth: 1 },
           ticks: {
@@ -75,8 +78,7 @@ function buildDualChart(canvasId, ds1, ds2, y1Label, y2Label, y1Min, y1Max, y2Mi
           border: { color: '#1e1e1e' }
         },
         y2: {
-          min: y2Min,
-          max: y2Max,
+          min: y2Min, max: y2Max,
           position: 'right',
           grid: { drawOnChartArea: false },
           ticks: {
@@ -97,50 +99,69 @@ function buildDualChart(canvasId, ds1, ds2, y1Label, y2Label, y1Min, y1Max, y2Mi
   });
 }
 
+// ── LINE STYLE HELPER ──
+function ls(color, width, axisId, dash) {
+  return {
+    borderColor: color,
+    backgroundColor: 'transparent',
+    borderWidth: width || 1.5,
+    borderDash: dash || [],
+    pointRadius: 0,
+    pointHoverRadius: 3,
+    tension: 0.2,
+    spanGaps: true,
+    yAxisID: axisId || 'y'
+  };
+}
+
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── LOAD DATA FROM JSON ──
-  fetch('../data/architecture_reishi_pothos_data.json')
-    .then(r => r.json())
-    .then(json => {
-      const raw = json.data;
+  Promise.all([
+    fetch('../data/architecture_reishi_pothos_data.json').then(r => r.json()),
+    fetch('../data/architecture_reishi_data.json').then(r => r.json())
+  ]).then(([combined, reishi]) => {
 
-      const lineStyle = (color, width = 1.5, axisId = 'y') => ({
-        borderColor: color,
-        backgroundColor: 'transparent',
-        borderWidth: width,
-        pointRadius: 0,
-        pointHoverRadius: 3,
-        tension: 0.2,
-        spanGaps: true,
-        yAxisID: axisId
-      });
+    const c = combined.data;
+    const r = reishi.data;
 
-      const co2pts   = raw.map(d => ({ x: d.hours, y: d.co2_ppm }));
-      const humpts   = raw.map(d => ({ x: d.hours, y: d.humidity_pct }));
-      const temppts  = raw.map(d => ({ x: d.hours, y: d.temp_c }));
-      const lightpts = raw.map(d => ({ x: d.hours, y: d.light_counts }));
+    // ── cohabitation (Reishi + Pothos) ──
+    const co2_c   = c.map(d => ({ x: d.hours, y: d.co2_ppm }));
+    const hum_c   = c.map(d => ({ x: d.hours, y: d.humidity_pct }));
+    const temp_c  = c.map(d => ({ x: d.hours, y: d.temp_c }));
+    const light_c = c.map(d => ({ x: d.hours, y: d.light_counts }));
 
-      // Chart 1 — CO₂ + Humidity
-      buildDualChart(
-        'chart-co2-hum',
-        { label: 'CO₂ ppm', data: co2pts, ...lineStyle('#88c9a0', 2, 'y') },
-        { label: 'Humidity %', data: humpts, ...lineStyle('#c39bd3', 1.5, 'y2') },
-        'CO₂ (ppm)', 'Humidity (%RH)',
-        500, 3500, 30, 90
-      );
+    // ── reishi only control ──
+    const co2_r  = r.map(d => ({ x: d.hours, y: d.co2_ppm }));
+    const hum_r  = r.map(d => ({ x: d.hours, y: d.humidity_pct }));
+    const temp_r = r.map(d => ({ x: d.hours, y: d.temp_c }));
 
-      // Chart 2 — Temperature + Light
-      buildDualChart(
-        'chart-temp-soil',
-        { label: 'Temperature °C', data: temppts, ...lineStyle('#e67e22', 2, 'y') },
-        { label: 'Light (counts)', data: lightpts, ...lineStyle('#6ab187', 1.5, 'y2') },
-        'Temp (°C)', 'Light (counts)',
-        21, 27, 0, 120
-      );
-    })
-    .catch(err => console.error('Failed to load chart data:', err));
+    // ── CHART 1 — CO₂ + Humidity ──
+    buildDualChart(
+      'chart-co2-hum',
+      [
+        { label: 'CO₂ — Reishi + Pothos (ppm)', data: co2_c,  ...ls('#88c9a0', 2,   'y') },
+        { label: 'CO₂ — Reishi Only (ppm)',      data: co2_r,  ...ls('#7eb8d4', 1.5, 'y',  [4, 3]) },
+        { label: 'Humidity — Reishi + Pothos %', data: hum_c,  ...ls('#c39bd3', 1.5, 'y2') },
+        { label: 'Humidity — Reishi Only %',     data: hum_r,  ...ls('#8fa8b8', 1,   'y2', [4, 3]) },
+      ],
+      'CO₂ (ppm)', 'Humidity (%RH)',
+      400, 4000, 30, 95
+    );
+
+    // ── CHART 2 — Temperature + Light ──
+    buildDualChart(
+      'chart-temp-soil',
+      [
+        { label: 'Temp — Reishi + Pothos °C', data: temp_c,  ...ls('#e67e22', 2,   'y') },
+        { label: 'Temp — Reishi Only °C',     data: temp_r,  ...ls('#7a9aaa', 1.5, 'y',  [4, 3]) },
+        { label: 'Light — Reishi + Pothos',   data: light_c, ...ls('#6ab187', 1.5, 'y2') },
+      ],
+      'Temp (°C)', 'Light (counts)',
+      21, 28, 0, 120
+    );
+
+  }).catch(err => console.error('Failed to load chart data:', err));
 
   // ── SCROLL REVEAL ──
   const sections = document.querySelectorAll('section');

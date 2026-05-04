@@ -426,6 +426,7 @@ section.visible { opacity: 1; transform: translateY(0); }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gallery-item.gallery-wide { grid-column: span 2; }
 .gallery-item.gallery-full { grid-column: 1 / -1; }
+.gallery-item.gallery-portrait { aspect-ratio: 3/4; }
 .gallery-caption {
   position: absolute;
   bottom: 0; left: 0; right: 0;

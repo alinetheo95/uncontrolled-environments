@@ -40,7 +40,7 @@
         <div>
           <div class="meta-grid">
             <div class="meta-cell">
-              <div class="meta-label">Specimen</div>
+              <div class="meta-label">Species</div>
               <div class="meta-value">Tradescantia zebrina</div>
             </div>
             <div class="meta-cell">
@@ -48,12 +48,8 @@
               <div class="meta-value">Prolific Vegetative Propagation</div>
             </div>
             <div class="meta-cell">
-              <div class="meta-label">Molecular Interaction</div>
+              <div class="meta-label">Molecular Level</div>
               <div class="meta-value">Cell Activation + Differentiation</div>
-            </div>
-            <div class="meta-cell">
-              <div class="meta-label">Measurement</div>
-              <div class="meta-value">Electrical Conductivity Differential</div>
             </div>
           </div>
         </div>
@@ -119,54 +115,49 @@
     </section>
 
     <!-- ── 02 EXPERIMENTATION ── -->
-    <section id="experiment">
-      <div class="section-header">
-        <div class="section-index">02</div>
-        <div class="section-title-block">
-          <h2>Experimentation</h2>
-          <div class="section-sub">Conditions + Variables</div>
-        </div>
+<section id="experiment">
+  <div class="section-header">
+    <div class="section-index">02</div>
+    <div class="section-title-block">
+      <h2>Experimentation</h2>
+      <div class="section-sub">Conditions + Variables</div>
+    </div>
+  </div>
+  <div class="content-col">
+    <div class="label-col">Core<br>Experiment</div>
+    <div class="text-col">
+      <p>One electrode is placed at the dead end of the stem — desiccated tissue, minimal ionic activity, electrically inert. The second electrode is placed at the opposite end where new growth is actively forming — differentiated cells, high moisture content, responsive to environment. The circuit measures the total electrical resistance of the stem segment between these two points, capturing the combined ionic state of the full decay-to-regeneration gradient in a single continuous reading.</p>
+
+      <div class="callout">
+        <p>The conductivity differential is not incidental to regeneration — it is the process made legible. The sensor does not intervene. It witnesses.</p>
       </div>
-      <div class="content-col">
-        <div class="label-col">Core<br>Experiment</div>
-        <div class="text-col">
-          <p>By placing one electrode at a stem that appears dead and one electrode further along the same stem where new growth is forming, we sense the direction and differential of electrical conductivity — tracing the moment the plant reclassifies dead material as a new origin point.</p>
 
-          <div class="callout">
-            <p>The conductivity differential is not incidental to regeneration — it is the process made legible. The sensor does not intervene. It witnesses.</p>
-          </div>
+      <p>As the dead end continues to desiccate over time, resistance across the stem increases and conductance declines. The living end introduces moment-to-moment oscillation — responsive to temperature, humidity, and touch — riding on top of the slow directional drift. The two signals are superimposed in a single channel: long-term decay and short-term biological activity, inseparable and simultaneous.</p>
 
-          <p>Electrodes are placed at three zones along a single stem: dead tissue, the wound/node junction, and actively developing new growth. The differential between these readings is the primary data stream — it traces exactly where in the regeneration sequence each part of the plant sits at any given moment.</p>
-
-          <table class="conditions-table">
-            <thead>
-              <tr>
-                <th>Zone</th>
-                <th>State</th>
-                <th>Reading</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="dot"></span>Zone 01 — Dead Tissue</td>
-                <td>Low · Stable</td>
-                <td>Desiccated stem. Minimal ionic activity. Conductivity baseline. Electrically inert — the scaffold.</td>
-              </tr>
-              <tr>
-                <td><span class="dot"></span>Zone 02 — Wound / Node</td>
-                <td>Fluctuating · Active</td>
-                <td>Meristematic reactivation. Auxin pooling at damage site. Electrically noisy — the threshold.</td>
-              </tr>
-              <tr>
-                <td><span class="dot"></span>Zone 03 — New Growth</td>
-                <td>High · Responsive</td>
-                <td>Differentiated cells. High moisture content. Responsive to touch and environment — the emergence.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+      <table class="conditions-table">
+        <thead>
+          <tr>
+            <th>Electrode</th>
+            <th>State</th>
+            <th>Reading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="dot"></span>Electrode A — Dead End</td>
+            <td>Low · Stable</td>
+            <td>Desiccated stem. Minimal ionic activity. Electrically inert — the scaffold.</td>
+          </tr>
+          <tr>
+            <td><span class="dot"></span>Electrode B — New Growth</td>
+            <td>High · Responsive</td>
+            <td>Differentiated cells. High moisture content. Responsive to touch and environment — the emergence.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
     <!-- ── 03 METHODOLOGY ── -->
     <section id="methodology">
@@ -198,8 +189,7 @@
               <div class="spec-value">Arduino → pyserial → CSV<br><em>~10 Hz continuous logging</em></div>
             </div>
           </div>
-          <p>Electrode placement protocol: Ag/AgCl electrodes wrapped around the stem at each zone rather than pierced through the tissue. Piercing triggers a wound response and corrupts the baseline reading. Plant staged vertically against a wall so the arrangement reads as a building section — dead stems at the top, wound zone at the midpoint, new growth emerging at the base.</p>
-          <p>LED output: conductivity from each zone mapped to light temperature and brightness beneath frosted acrylic. Dead tissue → cool and dim; wound zone → flickering and unstable; new growth → warm and steady. Circuit wires run visibly along the stem to the Arduino, doubling as drawn section-cut lines through the decay-to-regeneration gradient.</p>
+          <p>Electrode placement protocol: Ag/AgCl electrodes wrapped around the stem at each end rather than pierced through the tissue. Piercing triggers a wound response and corrupts the baseline reading. Plant staged vertically against a wall so the arrangement reads as a building section — dead stem at the top, new growth emerging at the base.</p>
         </div>
       </div>
 
@@ -223,72 +213,40 @@
           <div class="doc-label">Installation + specimen documentation</div>
           <div class="image-gallery">
             <div class="gallery-item gallery-wide">
-              <div class="img-placeholder landscape">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Installation — full view</span>
-              </div>
-              <div class="gallery-caption">Vertical installation — reading as building section</div>
+              <img src="images/form-failure-1.jpeg" alt="Installation — full view" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Dead tissue<br>detail</span>
-              </div>
-              <div class="gallery-caption">Zone 01 — desiccated stem + electrode</div>
+              <img src="images/form-failure-2.jpeg" alt="Dead tissue detail" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Wound zone<br>node detail</span>
-              </div>
-              <div class="gallery-caption">Zone 02 — meristematic node + electrode</div>
+              <img src="images/form-failure-8.jpeg" alt="Form failure — detail" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>New growth<br>emergence</span>
-              </div>
-              <div class="gallery-caption">Zone 03 — new growth + electrode</div>
+              <img src="images/form-failure-3.jpeg" alt="Wound zone node detail" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>Circuit<br>detail</span>
-              </div>
-              <div class="gallery-caption">Arduino Leonardo + electrode wiring</div>
+              <img src="images/form-failure-7.jpeg" alt="Tradescantia zebrina — specimen" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
             <div class="gallery-item">
-              <div class="img-placeholder square">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-                  <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-                  <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-                </svg>
-                <span>LED output<br>acrylic surface</span>
-              </div>
-              <div class="gallery-caption">Conductivity mapped to light — frosted acrylic</div>
+              <img src="images/form-failure-4.jpeg" alt="Circuit detail" style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <div class="gallery-item">
+              <img src="images/form-failure-6.jpeg" alt="LED output acrylic surface" style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <div class="gallery-item">
+              <img src="images/form-failure-5.jpeg" alt="New growth emergence" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="content-col" style="margin-top: 48px;">
+        <div class="label-col">Video</div>
+        <div class="text-col">
+          <div class="doc-label">Process documentation — simulation + physical testing</div>
+          <video src="images/form-failure-ball-2.mov" autoplay muted loop playsinline style="width:100%; max-width:900px; display:block; margin-bottom: 24px;"></video>
+          <video src="images/form-failure-DLA-1.mov" autoplay muted loop playsinline style="width:100%; max-width:900px; display:block;"></video>
+          <p style="margin-top: 24px;">During the active growth phase of the experiment, the DLA script was run in live connection with the Arduino Leonardo via SuperSerial, allowing the <em>Tradescantia zebrina</em> conductance readings to directly modulate the geometry parameters in real time. The raw electrical signal from the plant — measured across the stem between dead tissue and new growth — was parsed, remapped, and fed into the amplitude parameter of the aggregation algorithm, so that fluctuations in the plant's ionic activity produced corresponding changes in the density and character of the generated geometry. The sensor does not simulate growth — it witnesses a biological process and translates it into architectural form. What the algorithm produces is not a representation of the plant but a direct consequence of its electrical state at that moment.</p>
         </div>
       </div>
     </section>
@@ -356,33 +314,37 @@
 
     </section>
 
-    <!-- ── 06 FUTURE WORLD ── -->
-    <section id="future">
-      <div class="section-header">
-        <div class="section-index">06</div>
-        <div class="section-title-block">
-          <h2>Thesis Context</h2>
-          <div class="section-sub">Future World — Morphogenetic Accretion</div>
-        </div>
-      </div>
-      <div class="content-col">
-        <div class="label-col">Speculation</div>
-        <div class="text-col">
-          <div class="future-quote">"In a city where material scarcity has made conventional reconstruction impossible, the decaying built environment becomes the only available substrate for new architecture."</div>
-          <p>Buildings are no longer demolished and replaced — they are read for their remaining regenerative capacity. Structural failure is not cleared; it is an incubator for growth.</p>
-          <p>According to plant logic, error is not a problem to be corrected — it is an opportunity for new life. By harnessing the biological framework of cell activation and differentiation, decay becomes the trigger for regeneration rather than the signal for demolition. Damaged material is not waste; it is scaffold. The building's failures become its growth nodes, repurposed as the origin points from which new structure differentiates and emerges.</p>
-          <p>What human perception reads as error, loss, or irreversible deterioration, plant logic reads as signal. The architecture that results is accretive rather than additive: growing from what already exists. If architectural systems could operate under this same biological framework, the ruins of one building would not mark the end of occupation — they would carry within them the precise conditions needed for the next one to grow.</p>
-          <div class="img-placeholder wide" style="margin-top:40px; max-width:900px;">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <rect x="4" y="4" width="24" height="24" rx="1" stroke="#2a2a2a" stroke-width="1"/>
-              <circle cx="11" cy="11" r="3" stroke="#2a2a2a" stroke-width="1"/>
-              <path d="M4 22 L10 16 L16 20 L22 13 L28 18" stroke="#2a2a2a" stroke-width="1"/>
-            </svg>
-            <span>Grasshopper — DLA growth driven by EC decay threshold — coming soon</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- ── 06 FUTURE WORLD ── -->
+<section id="future">
+  <div class="section-header">
+    <div class="section-index">06</div>
+    <div class="section-title-block">
+      <h2>Thesis Context</h2>
+      <div class="section-sub">Future World — Morphogenetic Accretion</div>
+    </div>
+  </div>
+  <div class="content-col">
+    <div class="label-col">Speculation</div>
+    <div class="text-col">
+      <div class="future-quote">"In a city where material scarcity has made conventional reconstruction impossible, the decaying built environment becomes the only available substrate for new architecture."</div>
+
+      <video autoplay loop muted playsinline style="margin-top:40px; max-width:900px; width:100%; display:block;">
+        <source src="images/form-failure-render-3-edit_1.mp4" type="video/mp4">
+      </video>
+
+      <p style="padding-top: 24px;">The points of structural failure on the warehouse — exposed truss junctions, open window keystones, damaged roof edges — become the seed points for the DLA growth algorithm. Decay on the site is growth in the model. This directly mirrors Tradescantia's wound response logic: the plant does not grow despite damage, it grows from it. The most failed point is the most fertile one</p>
+      
+      <img src="images/form-failure-render-edit.png" alt="Rendering 02 — DLA growth initiating at truss nodes + window keystones" style="margin-top:40px; max-width:900px; width:100%; display:block;">
+
+      <img src="images/form-failure-render-2-edit.png" alt="Rendering 03 — full colonization · warehouse unrecognizable" style="margin-top:24px; max-width:900px; width:100%; display:block;">
+
+      <p style="margin-top:40px;">Buildings are no longer demolished and replaced — they are read for their remaining regenerative capacity. Structural failure is not cleared; it is an incubator for growth.</p>
+      <p>According to plant logic, error is not a problem to be corrected — it is an opportunity for new life. By harnessing the biological framework of cell activation and differentiation, decay becomes the trigger for regeneration rather than the signal for demolition. Damaged material is not waste; it is scaffold. The building's failures become its growth nodes, repurposed as the origin points from which new structure differentiates and emerges.</p>
+      <p>What human perception reads as error, loss, or irreversible deterioration, plant logic reads as signal. The architecture that results is accretive rather than additive: growing from what already exists. If architectural systems could operate under this same biological framework, the ruins of one building would not mark the end of occupation — they would carry within them the precise conditions needed for the next one to grow.</p>
+
+    </div>
+  </div>
+</section>
 
     <!-- FOOTER -->
     <footer>
